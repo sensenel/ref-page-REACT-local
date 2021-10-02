@@ -5,13 +5,15 @@
 //headerArr von script.js
 //imgrArr von script.js
 //contentHeader von script.js
+document.addEventListener("DOMContentLoaded", function(event) {
+
     let imgLayer = $('#img-layer'),
         view = $('#view'),
         currentImg = '',
         body = document.getElementById('body'),
+        headerArr = [... document.querySelectorAll('.item-header')],
         imageWrapper = document.getElementsByClassName('image-wrapper'),
         directLinks = document.getElementsByClassName('direct-links'),
-        //colorPalette = ['red', 'blue', 'purple', 'green'], // vorläufig deaktiviert, aber aufheben
         headerFxEnter = new TimelineMax({paused: true}),
         headerFxLeave = new TimelineMax({paused:true}),
         imgFade = new TimelineMax({paused:true});
@@ -22,18 +24,15 @@
 
     headerFxLeave.set(imgLayer, { x: '-100%', willChange:"transform"})
                 .to(imgLayer, 0.5, { x: '0%', delay: 0.2, ease: Power3.easeOut});
-
-                
-    document.addEventListener("DOMContentLoaded", function(event) {
-        
+   
         window.onload = function() {
 
             window.requestAnimationFrame(function() {      
                 
                 //Header-Image Slider reveal
-                    directLinks[0].addEventListener('mouseenter', () => {        
+                    directLinks[0].addEventListener('mouseenter', () => {                        
                         headerFxEnter.restart();
-                        headerFxLeave.progress(1, true); //immernoch Hänger bei den Tweens manchmal; evtl hiermit besser (?)
+                        //headerFxLeave.progress(1, true); //immernoch Hänger bei den Tweens manchmal; evtl hiermit besser (?)
                     });
                     directLinks[0].addEventListener('mouseleave', () => {
                         headerFxLeave.restart();

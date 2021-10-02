@@ -1,10 +1,11 @@
 'use-strict'
 
+$(() => {  
     const headerArr = [... document.querySelectorAll('.item-header')],
+        imageWrapper = document.getElementsByClassName('image-wrapper'),
         imgArr = [... document.querySelectorAll('.content-image__img')];
     let contentHeader = document.getElementsByClassName('content-header');
     //imgWrapper = document.getElementsByClassName('content-header'); // in main.js initialisiert
-    
     //images & drape imageWarpper:after
     headerArr.forEach((el, i) => {
         el.addEventListener('mouseenter', () => {
@@ -16,34 +17,28 @@
             imageWrapper[0].classList.remove('hover'); 
         });
     });   
-        
+     
     async function getText(file) {
         let myObject = await fetch(file);
         let myText = await myObject.text();
         document.getElementById('view').innerHTML = myText;
-        //---> erstmal kein Title document.title = file.pageTitle;
-    // die URI ist nicht relevant in diesem Fall - Situation -> reload: index inhalte fehlen; das reicht also erstmal, aber gut wäre zu wissen wie das geht  
-        //window.history.pushState({"html":file}, '', '/'+ file); 
-    // ENDE 
     }
 
-
-/*     window.onpopstate = function(e){
-        if(e.state){
-            document.getElementById("wrapper").innerHTML = e.state.html;
-            document.title = e.state.pageTitle;
-        }
-    }; */
-
+    // für react evtl hier: https://stackoverflow.com/questions/53819864/how-to-async-await-in-react-render-function
+    // hier auch useEffect! https://www.digitalocean.com/community/tutorials/how-to-handle-async-data-loading-lazy-loading-and-code-splitting-with-react
     // richtige file zu entsprechenden Header Link
     const projektLink = document.querySelectorAll('.projekt-link');
 
-    projektLink.forEach((el,i) => {
-        el.addEventListener('click', (e) => {
-            e.preventDefault();
-            return getText(`projekt-${i+1}.php`);
+
+        projektLink.forEach((el,i) => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                //console.log(getText(`../src/assets/projekt-${i+1}.html`));
+                //return getText(`../src/assets/ch-gabler.png`);
+                return getText(`../src/assets/projekt-${i+1}.html`);
+            });
         });
-    });
+});
 
 /** jQuery helpers */
 
@@ -56,18 +51,29 @@
                     $('body').toggleClass('ext-open');
                 }); 
         }); */
-       
-    $('.direct-links').hover(() => {
-        $('body').toggleClass('direct');   
-    });
 
-    //menu toggle
+    /**
+     * Hier die document ready bindings:
+     */
+    $(() => { // wg React document ready nötig! 
+        $('.direct-links').hover(() => {
+            $('body').toggleClass('direct');   
+        });
 
-    $('#mnu-button').on('click', ({currentTarget}) => { // arrow functions können doch kein "this" haben - deswegen -> function() oder mit {currentTarget}
-        $(currentTarget).toggleClass('open');
-        $('body').toggleClass('mnu-open');
-        $('.nav-content a').toggleClass('init');
+        //menu toggle
+
+        $('#mnu-button').on('click', ({currentTarget}) => { // arrow functions können doch kein "this" haben - deswegen -> function() oder mit {currentTarget}
+            $(currentTarget).toggleClass('open');
+            $('body').toggleClass('mnu-open');
+            $('.nav-content a').toggleClass('init');
+        });
+
+        $('#onClick').click(() => {
+            $('body').addClass('port-2');
+        });
+
     });
+    //END --> document ready bindings
 
     // Skill Progress-Bars
     let percents = ['91', '94','82', '71', '55', '67', '86', '79', '66', '28', '89', '33', '40', '73', '55'];
