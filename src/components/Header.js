@@ -1,5 +1,54 @@
 import profil from '../assets/ch-gabler.png';
 
+const skills = {
+    'html(5)': '91%',
+    'CSS(3)' : '94%',
+    'JavaScript': '82%',
+    'PHP': '71%',
+    'mySQL': '55%'
+}
+
+const skillsBottom = {
+        "Frameworks": {'React': '67%', 'GSAP': '86%', 'jQuery': '79%', 'BootStrap': '66%', "Node.js": '28%' },
+        "CMS-Systeme": {'Joomla': '89%', 'WordPress': '33%', 'SilverStripe': '40%'},
+        "Versionierung": {'GitHub': '73%', 'BitBucket': '55%'}
+}
+
+const skillsArray = Object.keys(skills).map((el, i) => {
+    return (
+        <div key={i} className="skill-item top flex">
+            <h3>{el}</h3>
+            <div className="progress">     
+                <div className="progress-bar" role="progressbar">   
+                    <p>{skills[el]}</p>
+                </div>
+            </div>
+        </div>
+    );
+});
+
+const skillsBottomArray = Object.keys(skillsBottom).map((el, i) => {
+
+    return (
+        <div key={i} className="prog-bottom--item">
+            <h3>{el}</h3>
+            { Object.keys(skillsBottom[el]).map((key, x) => {
+                return (
+                        <div className="skill-item bottom">                    
+                            <h4>{key}</h4>
+                                <div className="progress">     
+                                    <div className="progress-bar" role="progressbar">   
+                                        <p>{skillsBottom[el][key]}</p>
+                                    </div>                    
+                                </div>
+                        </div>
+                    ) // END return 2
+                }) // END Object.keys -> keys
+            } { /* js in JSX OUT */ }
+        </div>
+        ) // END return 1
+});
+
 const Header = () => {
     return (
     <header>    
@@ -11,39 +60,9 @@ const Header = () => {
                     <button id="skill-close">&#10006;</button>
                     <div className="skill-content">
                         <h2>Skillset</h2>
-                        {/*
-                        <?php 
-                            foreach($skillsArray as $key => $value) {
-                                print   '<div className="skill-item top flex">
-                                            <h3>'.$key.'</h3>
-                                            <div className="progress">     
-                                                <div className="progress-bar" role="progressbar">   
-                                                    <p>'.$value.'</p>
-                                                </div>
-                                            </div>
-                                        </div>';
-                            }
-                        ?> */ }
+                        {skillsArray}
                         <div id="prog-bottom" className="flex">
-                            {/*
-                            <?php 
-                            foreach($skillsArrayBottom as $key => $array) {
-                                print   '<div className="prog-bottom--item">
-                                            <h3>'.$key.'</h3>';
-                                    foreach($array as $index => $value) {
-                                        print   '<div className="skill-item bottom">
-                                                <h4>'.$index.'</h4>
-                                                    <div className="progress">     
-                                                        <div className="progress-bar" role="progressbar">   
-                                                            <p>'.$value.'</p>
-                                                        </div>
-                                                    </div>
-                                                </div>';                                                                                          
-                                        }
-                                print '</div>';
-                            }
-                            
-                        ?> */ }
+                            {skillsBottomArray}
                         </div>   
                     </div>                        
                 </div>
