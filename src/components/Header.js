@@ -51,7 +51,14 @@ const skillsBottomArray = Object.keys(skillsBottom).map((el, i) => {
 
 const Header = () => {
     return (
-    <header>    
+        <>
+    <div id="skill-loader">
+        <div className="angle top-left"></div>
+        <div className="angle top-right"></div>
+        <div className="angle bottom-left"></div>
+        <div className="angle bottom-right"></div>
+    </div>
+    <header>
         <div className="header-container">
             <div className="profil">
                 <img src={ profil } alt="Ch. Gabler, Webentwickler und ganz netter Typ so :)" />
@@ -88,6 +95,7 @@ const Header = () => {
             </div>
         </div>
     </header>
+    </>
     )
 }
 

@@ -1,7 +1,7 @@
 import portImgArray from './images';
+
 //in public folder könne wohl die imgs wie gewohnt ausgreschrieben werden? 
 //https://www.codegrepper.com/code-examples/javascript/img+src+with+alt+in+react+js
-
 
 const imgArray = portImgArray.map((img, i) => 
     <img
@@ -40,6 +40,7 @@ const headerItemArray = Object.values(headerItems).map((el, i) => {
 const Wrapper = () => {
     return (
         <div id="wrapper">
+        { /* <Projekte /> */ }
             <div className="content">
                 <div className="content-image">
                     <div className="image-wrapper">

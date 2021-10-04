@@ -18,16 +18,16 @@ $(() => {
         });
     });   
      
-    async function getText(file) {
+/*     async function getText(file) {
         let myObject = await fetch(file);
         let myText = await myObject.text();
         document.getElementById('view').innerHTML = myText;
-    }
+    } */
 
     // für react evtl hier: https://stackoverflow.com/questions/53819864/how-to-async-await-in-react-render-function
     // hier auch useEffect! https://www.digitalocean.com/community/tutorials/how-to-handle-async-data-loading-lazy-loading-and-code-splitting-with-react
     // richtige file zu entsprechenden Header Link
-    const projektLink = document.querySelectorAll('.projekt-link');
+/*     const projektLink = document.querySelectorAll('.projekt-link');
 
 
         projektLink.forEach((el,i) => {
@@ -37,7 +37,7 @@ $(() => {
                 //return getText(`../src/assets/ch-gabler.png`);
                 return getText(`../src/assets/projekt-${i+1}.html`);
             });
-        });
+        }); */
 });
 
 /** jQuery helpers */

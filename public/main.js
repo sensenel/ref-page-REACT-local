@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         currentImg = '',
         body = document.getElementById('body'),
         headerArr = [... document.querySelectorAll('.item-header')],
+        imgArr = [... document.querySelectorAll('.content-image__img')],
         imageWrapper = document.getElementsByClassName('image-wrapper'),
         directLinks = document.getElementsByClassName('direct-links'),
         headerFxEnter = new TimelineMax({paused: true}),
