@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         //let contentElemente = [$('.detail-header'), $('.detail-seite--content'), $('.bck-link')];
                         console.log(imgWrapTransTop);
                         imgWrapTrans.fromTo(imageWrapper, 1, {top: imgWrapTransTop}, {top: 0, 'width': '100%', 'height': '370px', ease: Power3.easeOut}, "imgTransMarker")
-                                    .fromTo(view, 1.7, {y: 600}, {y: -70, ease: Power4.easeOut}, "imgTransMarker")                            
+                                    .fromTo(view, 1.7, {y: 600}, {y: -150, ease: Power4.easeOut}, "imgTransMarker")                            
                                     .fromTo(view, 0.7, {alpha: 0}, {alpha: 1, ease: Power4.easeIn}, "imgTransMarker+=0.3")
                                     .to($('header .profil'), 0.5, {y: -30, x: -30, scale: 0.7}, "imgTransMarker+=0.2");
                                     /**

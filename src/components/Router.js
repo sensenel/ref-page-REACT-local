@@ -1,17 +1,22 @@
 import { Switch, Route } from 'react-router-dom';
+import Start from './Start';
 import Projekt_1 from './Projekt_1';
 
-const Main = () => {
+// Router Tutorial (Codeacademy): https://blog.pshrmn.com/simple-react-router-v4-tutorial/
+
+
+const Router = () => {
     return (
-        <main>
+        <>
             <Switch>
+                <Route exact path='/' component={Start}/>
                 <Route path='/projekt-1' component={Projekt_1}/>
 {/*                 <Route exact path='/projekt-1' component={Projekt_1}/>
                 <Route path='/roster' component={Roster}/>
                 <Route path='/schedule' component={Schedule}/> */}
             </Switch>
-        </main>
+        </>
     )
 }
 
-export default Main
+export default Router
