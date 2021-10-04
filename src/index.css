@@ -814,7 +814,7 @@ body#body p.small {
   font-size: 14px;
   padding: 5px;
   left: 90%;
-  top: 10px;
+  top: -70px;
   color: #fff;
   opacity: 0;
   background: #1a1a1a;
@@ -831,7 +831,7 @@ span.visible[data-title]:before {
   color: #fff;
   border: 8px solid transparent;
   border-top: 8px solid #fff;
-  top: 40px;
+  top: -40px;
 }
 span.visible[data-title]:after {
   opacity: 1;
