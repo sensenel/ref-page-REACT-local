@@ -1,4 +1,5 @@
 import portImgArray from './images';
+import { Link } from 'react-router-dom';
 
 //in public folder könne wohl die imgs wie gewohnt ausgreschrieben werden? 
 //https://www.codegrepper.com/code-examples/javascript/img+src+with+alt+in+react+js
@@ -12,12 +13,12 @@ const imgArray = portImgArray.map((img, i) =>
     ); 
 
 const headerItems = {
-    1: ["/src/assets/projekt-1.html", "Logistik", "CMS &#8226; Templating php/JS/CSS3", "portfolio-1.jpg"],
-    2: ["/src/assets/projekt-5.html", "Music", "CMS &#8226; Design & Templating php/CSS3", "portfolio-2.jpg"],
-    3: ["/src/assets/projekt-3.html", "Agentur", "experimentell &#8226; animiert &#8226; Storytelling", "portfolio-3.jpg"],
-    4: ["/src/assets/projekt-4.html", "Architektur", "CMS &#8226; Templating php/JS/CSS3", "portfolio-4.jpg"],
-    5: ["/src/assets/projekt-2.html", "Finanzen", "CMS &#8226; Templating php/JS/CSS3", "portfolio-5.jpg"],
-    6: ["/src/assets/projekt-6.html", "Beauty", "CMS &#8226; Design & Templating JS/php/CSS3", "portfolio-6.jpg"]
+    1: ["/projekt-1", "Logistik", "CMS &#8226; Templating php/JS/CSS3", "portfolio-1.jpg"],
+    2: ["/projekt-5.html", "Music", "CMS &#8226; Design & Templating php/CSS3", "portfolio-2.jpg"],
+    3: ["/projekt-3.html", "Agentur", "experimentell &#8226; animiert &#8226; Storytelling", "portfolio-3.jpg"],
+    4: ["/projekt-4.html", "Architektur", "CMS &#8226; Templating php/JS/CSS3", "portfolio-4.jpg"],
+    5: ["/projekt-2.html", "Finanzen", "CMS &#8226; Templating php/JS/CSS3", "portfolio-5.jpg"],
+    6: ["/projekt-6.html", "Beauty", "CMS &#8226; Design & Templating JS/php/CSS3", "portfolio-6.jpg"]
 }
 
 const headerItemArray = Object.values(headerItems).map((el, i) => {
@@ -29,9 +30,9 @@ const headerItemArray = Object.values(headerItems).map((el, i) => {
                     <h2 className="item-header">{el[1]}<span className="header-categorie">{el[2]}</span></h2>
                 </a>
             :
-                <a href={el[0]} className="content-header__item__link projekt-link">
+                <Link to={el[0]} className="content-header__item__link projekt-link">
                     <h2 className="item-header">{el[1]}<span className="header-categorie">{el[2]}</span></h2>
-                </a>
+                </Link>
             }
         </li>
     )
