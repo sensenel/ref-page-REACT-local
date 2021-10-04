@@ -39,50 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         headerFxLeave.restart();
                     });
 
-                headerArr.forEach((el, i) => {
-                    /**
-                     * großer Mist hier mit GSAP - nur Konflikte mit anderer timeline 
-                     */
-                        // set some individual properties
-                        //TweenMax.set(imgArr[i], {alpha: 0});
-                        
-                        // create a timeline for this element in paused state
-/*                         let tl = new TimelineMax({paused: true});
-
-                        // create your tween of the timeline in a variable
-                        tl.fromTo(imgArr[i], 0.3, {alpha: 0}, {alpha: 1, ease: Expo.easeIn});
-            
-                        // store the tween timeline in the javascript DOM node
-                        imgArr[i].animation = tl;
-            
-                        //create the event handler
-                        el.addEventListener("mouseenter",(e) => {
-                            imgArr[i].animation.restart();
-                        });
-                        el.addEventListener("mouseleave",() => {
-                            if(!body.classList.contains('detail')) { // scheisse nochmal, das war großes Problem hier 07092021/ ohne die Bedingung= Ärger!!
-                                setTimeout(function(){
-                                    imgArr[i].animation.reverse(0, true); //HIER!!
-                                }, 400);
-                            }
-                        }); */
-
-            /**
-             * im Nachhinein evtl nochmal probieren, aber auch konsequenter Umsetzen!
-             * Erfordert mehere Änderungen - siehe Trello: 
-             */
-
-                    //colorPalette value zu body background 
-
-/*                         el.addEventListener('mouseenter', () => {
-                            body.style.background = colorPalette[i];
-                        });
-                        el.addEventListener('mouseleave', () => {
-                            body.style.background = '#1f2029';
-                        }); */
-
-                    // END --> colorPalette value zu body background 
-                });
                 //END ----> Header-Image Slider reveal
 
                 //image-wrapper to header transition Unterseiten
@@ -187,29 +143,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
             //END --> ProfilBild Animation
-
-            // extended items animation ------- VERWORFEN 21092021 -----------
-                /*
-                let extendedLink = $('.ext.content-header__item__link'),                    
-                    extendedItemContainer = [... document.querySelectorAll('.extended-item')],
-                    extItemTl = new TimelineMax( {paused:true} );
-
-                    extItemTl.fromTo(extendedItemContainer, 1, {alpha: 0}, {alpha: 1, stagger: 0.2, ease: Power3.easeOut}, "start")
-                            .fromTo(extendedItemContainer, 1, {scale: 0}, {scale: 1, stagger: 0.15, ease: Power3.easeOut}, "start+=0.2");
-
-                    extendedLink[0].addEventListener('click', (e) => {
-                        let extMore = document.getElementsByClassName('ext-more')[0].innerHTML;
-                        if (extMore === ' + ') {
-                            extItemTl.restart().timeScale(1.5);
-                            document.getElementsByClassName('ext-more')[0].innerHTML = ' - ';
-                        } else {
-                            //extItemTl.reversed(true).timeScale(4); // so wird reverse schneller, zuerst condition und dann drunter call reverse ohne param
-                            extItemTl.reverse(1);
-                            document.getElementsByClassName('ext-more')[0].innerHTML = ' + ';                        
-                        } 
-                    });
-                */
-            // END --> extended items animation
 
             // skills Overlay animation
 

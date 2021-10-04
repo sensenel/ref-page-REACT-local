@@ -990,6 +990,52 @@ body.ext-open .carousel.extended {
 
 
 /*footer*/
+.app-select {
+  margin: 20px 0px 10px;
+  padding: 50px 20px 0px 0px;
+}
+.app-select img {
+  width: 80px;
+}
+.app-select--container h4 {
+  position: absolute;
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #fff;
+  opacity: 0;
+  font-weight: normal;
+  font-size: 12px;
+  width: 170px;
+  left: -45px;
+  top: -20px;
+  transform: translateY(50px);
+  transition: all 0.5s;    
+}
+.copyright {
+  flex-basis: 50%;
+}
+.app-select {
+  position: relative;
+}
+.app-select:hover h4 {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.app-select:hover img {
+  animation: bounce 1.5s infinite;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.2,.8)   translateY(0); }
+  30%  { transform: scale(.8,1.2)   translateY(-50px); }
+  50%  { transform: scale(1.1,.85) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
 #footer {
   display: flex;
   height: 10vh;
