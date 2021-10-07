@@ -558,7 +558,7 @@ flex-basis: 45%;
   width: 100%;
   position: relative;
   background: linear-gradient(
-      90deg, #41d0cd 0%, #ffb570 46%, #c85094 100%);
+    90deg, #c85094 0%, #ffb570 15%, #41d0cd 90%);
   overflow: hidden;
   border-radius: 3px; 
   /* box-shadow: 0px 0px 10px #41d0cd42, 1px 0px 10px #ffb56f66, -3px 2px 20px #c850944d; */     
