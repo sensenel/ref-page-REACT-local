@@ -14,14 +14,19 @@ const skillsBottom = {
         "Versionierung": {'GitHub': '73%', 'BitBucket': '55%'}
 }
 
+let skillCounter = 1;
+
 const skillsArray = Object.keys(skills).map((el, i) => {
     return (
         <div key={i} className="skill-item top flex">
             <h3>{el}</h3>
             <div className="progress">     
                 <div className="progress-bar" role="progressbar">   
-                    <p>{skills[el]}</p>
+                    <p id={`id="count-${skillCounter}"`}>{skills[el]}</p>
                 </div>
+            </div>
+            <div style={{display: 'none'}}>
+                {skillCounter++}
             </div>
         </div>
     );
@@ -38,8 +43,11 @@ const skillsBottomArray = Object.keys(skillsBottom).map((el, i) => {
                             <h4>{key}</h4>
                                 <div className="progress">     
                                     <div className="progress-bar" role="progressbar">   
-                                        <p>{skillsBottom[el][key]}</p>
+                                        <p id={`id="count-${skillCounter}"`}>{skillsBottom[el][key]}</p>
                                     </div>                    
+                                </div>
+                                <div style={{display: 'none'}}>
+                                    {skillCounter++}
                                 </div>
                         </div>
                     ) // END return 2
@@ -52,50 +60,50 @@ const skillsBottomArray = Object.keys(skillsBottom).map((el, i) => {
 const Header = () => {
     return (
         <>
-    <div id="skill-loader">
-        <div className="angle top-left"></div>
-        <div className="angle top-right"></div>
-        <div className="angle bottom-left"></div>
-        <div className="angle bottom-right"></div>
-    </div>
-    <header>
-        <div className="header-container">
-            <div className="profil">
-                <img src={ profil } alt="Ch. Gabler, Webentwickler und ganz netter Typ so :)" />
-
-                <div id="skill-set">
-                    <button id="skill-close">&#10006;</button>
-                    <div className="skill-content">
-                        <h2>Skillset</h2>
-                        {skillsArray}
-                        <div id="prog-bottom" className="flex">
-                            {skillsBottomArray}
-                        </div>   
-                    </div>                        
-                </div>
-
-                <div className="profil-links">
-                    <div className="profil-item--container">
-                        <div className="profil-item"><p id="skills">Meine Skills</p></div>
-                    </div>
-                    <div className="profil-item--container">
-                        <div className="profil-item"><p><a href="mailto:info@chris-gabler.de?subject=Nachricht von Projekt-Seite">info@chris-gabler.de</a></p></div>
-                    </div>
-                    <div className="profil-item--container">
-                        <div className="profil-item"><p><a href="tel:+4915122917743">Tel: +49 151 22 91 77 43</a></p></div>
-                    </div>
-                </div>
+            <div id="skill-loader">
+                <div className="angle top-left"></div>
+                <div className="angle top-right"></div>
+                <div className="angle bottom-left"></div>
+                <div className="angle bottom-right"></div>
             </div>
-            <div className="menu-container">
-                <button id="mnu-button" className="">
-                    <span className="ham-menu-1"></span>
-                    <span className="ham-menu-2"></span>
-                    <span className="ham-menu-3"></span>
-                </button>
-            </div>
-        </div>
-    </header>
-    </>
+            <header>
+                <div className="header-container">
+                    <div className="profil">
+                        <img src={ profil } alt="Ch. Gabler, Webentwickler und ganz netter Typ so :)" />
+
+                        <div id="skill-set">
+                            <button id="skill-close">&#10006;</button>
+                            <div className="skill-content">
+                                <h2>Skillset</h2>
+                                {skillsArray}
+                                <div id="prog-bottom" className="flex">
+                                    {skillsBottomArray}
+                                </div>   
+                            </div>                        
+                        </div>
+
+                        <div className="profil-links">
+                            <div className="profil-item--container">
+                                <div className="profil-item"><p id="skills">Meine Skills</p></div>
+                            </div>
+                            <div className="profil-item--container">
+                                <div className="profil-item"><p><a href="mailto:info@chris-gabler.de?subject=Nachricht von Projekt-Seite">info@chris-gabler.de</a></p></div>
+                            </div>
+                            <div className="profil-item--container">
+                                <div className="profil-item"><p><a href="tel:+4915122917743">Tel: +49 151 22 91 77 43</a></p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="menu-container">
+                        <button id="mnu-button" className="">
+                            <span className="ham-menu-1"></span>
+                            <span className="ham-menu-2"></span>
+                            <span className="ham-menu-3"></span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        </>
     )
 }
 

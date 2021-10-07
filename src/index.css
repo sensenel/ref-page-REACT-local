@@ -225,9 +225,13 @@ body.mnu-open .nav-content {
   visibility: visible;
 }
 .nav-content a {
+  font-weight: normal;
+  letter-spacing: 1.4px;
+  margin-left: 15px;
+  -webkit-text-stroke: 0.3px #fff;
   opacity: 0;
   transform: translateX(200px);
-  transition: opacity 0.5s ease-in-out, 
+  transition: opacity 0.5s ease-in-out,
               transform .1s cubic-bezier(0,.42,0,1.01) .1s;
 }
 .nav-content a.init {
@@ -246,12 +250,168 @@ body.mnu-open .nav-content {
   transition-delay: 1.1s;   
 }
 .nav-content nav a {
+  position: relative;
   color: #fff;
   text-decoration: none;
   display: block;
-  font-size: 32px;
+  font-size: 42px;
   padding: 15px 0px;
 }
+a.menu-header span {
+  font-size: 14px;
+  opacity: .7;
+  -webkit-text-stroke: .2px #fff;
+}
+.nav-content nav:hover a {
+  color: transparent;
+  opacity: .8;   
+}
+body#body .nav-content nav a:hover,
+.nav-content nav a.init:hover:before {
+  color: #fff;
+  opacity: 1;
+}
+.nav-content nav {
+  counter-reset: a;
+  overflow: hidden;
+  padding: 0px 0px 65px 40px;
+}
+.nav-content nav a.init:before {
+  position: absolute;
+  bottom: 25px;
+  left: -30px;
+  color: #fff;
+  opacity: .4;
+  counter-increment: a;
+  content: counter(a, decimal-leading-zero);
+  -webkit-text-stroke: .1px #fff;
+  transition: all .3s;
+  font-size: 16px;
+}
+.nav-content nav a:before {
+  opacity: 0;
+}
+
+.pacman {
+  width: 20px;
+  height: 20px;
+  transform: scale(2.5) translateX(-30px);
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: yellow;
+  border: none;
+  border-radius: 50%;
+  opacity: 0;
+  clip-path: polygon(
+    0 0,
+    20px 0,
+    20px -5px,
+    8px 10px,
+    20px 25px,
+    20px 20px,
+    0 20px
+  );
+  transition: transform 0s,
+              opacity 0s;
+}
+
+a.pacman-link:hover .pacman {
+  opacity: 1;
+  animation: chew 0.2s linear forwards infinite;
+  transform: scale(2.5) translateX(200px);
+  transition: transform 2s .2s linear,
+              opacity .1s .3s;
+} 
+  @keyframes chew {
+      50% {
+          clip-path: polygon(
+          0 0,
+          20px 0,
+          20px 10px,
+          8px 10px,
+          20px 10px,
+          20px 20px,
+          0 20px
+          );
+      }
+  }
+.codepen {
+  position: absolute;
+  perspective: 800px;
+  top: -170px;
+  left: -120px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  perspective: 800px;
+  perspective-origin: 45% -55%;
+  transform: scale(0.4);
+  transition: opacity 0s;
+  z-index: 0;
+  width: 600px;
+  height: 600px;
+}
+a.codepen-link:hover .codepen {
+  opacity: 0.3;
+  transition: opacity .3s ease .2s;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  transform-style: preserve-3d;
+}
+a.codepen-link:hover .cube {
+  animation: cubeRotate 8s linear infinite;
+}
+@keyframes cubeRotate {
+  from { transform: rotateY(0deg);}
+  to { transform: rotateY(360deg);}
+}
+.side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  border: 10px solid white;
+  border-radius: 10px;
+}
+.front {
+  background: transparent;
+  transform: translateZ(100px);
+}
+.back {
+  background: transparent;
+  transform: translateZ(-100px);
+}
+.left {
+  background: transparent;
+  transform: rotateY(90deg) translateZ(100px);
+}
+.right {
+  background: transparent;
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.codewars {
+  position: absolute;
+  perspective: 300px;
+  top: -10px;
+  left: 120px;
+  z-index: -1;
+}
+.codewars img {
+  width: 120px;
+  opacity: 0;
+  /* transition: all .3s ease .2s; */
+}
+.codewars-link:hover .codewars img {
+  opacity: 0.5;
+  
+}
+
 /* END --> nav*/
 
 
@@ -413,6 +573,7 @@ border-right: 500px solid #fff;
 }
 .progress-bar p {
   position: absolute;
+  right: 10px;
   margin: 0px 0px 0px 10px;
   text-shadow: 2px 2px 1px #8c8c8c;
 }
@@ -610,7 +771,7 @@ body.ext-hover ol.content-header--items a h2 {
 }
 ol.content-header--items li {
   position: relative;
-  line-height: 50px;
+  line-height: 55px;
 }
 li.content-header__item.last {
   position: relative;
@@ -990,76 +1151,138 @@ body.ext-open .carousel.extended {
 
 
 /*footer*/
+.github-container h4 span,
+.app-select--container h4 span {
+    font-size: 21px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    width: 25px;
+    position: absolute;
+    display: block;
+    text-align: center;
+    height: 25px;
+    left: -35px;
+}
+.app-select--container h4 span {
+    top: -7px;
+}
+.github-select:hover h4 {
+    opacity: 1;
+    transform: translateX(-100%);
+}
+.github-select:hover img {
+    animation: wiggleIt 1.5s infinite .4s;
+}
+    @keyframes wiggleIt {
+        0%{transform: rotate(0deg)}
+        5%{transform: rotate(15deg)}
+        10%{transform: rotate(-15deg)}
+        15%{transform: rotate(10deg)}
+        20%{transform: rotate(-10deg)}
+        25%{transform: rotate(5deg)}
+        30%{transform: rotate(-5deg)}
+        60%{transform: rotate(0deg)}
+        80%{transform: rotate(0deg)}
+        100%{transform: rotate(0deg)}
+    }
+
+.github-container h4 {
+    position: absolute;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0;
+    font-weight: normal;
+    font-size: 12px;
+    width: 170px;
+    left: 0px;
+    top: -20px;
+    transform: translateX(-130%);
+    transition: all 0.4s ease .1s;    
+}
+.github-select img {
+    width: 55px;
+}
+.github-container {
+    position: relative;
+    margin: 10px 30px 10px 0px;
+}
 .app-select {
-  margin: 20px 0px 10px;
-  padding: 50px 20px 0px 0px;
+    margin: 20px 0px 10px;
+    padding: 50px 20px 0px 0px;
 }
 .app-select img {
-  width: 80px;
+    width: 60px;
 }
 .app-select--container h4 {
-  position: absolute;
-  text-decoration: none;
-  padding: 5px 10px;
-  color: #fff;
-  opacity: 0;
-  font-weight: normal;
-  font-size: 12px;
-  width: 170px;
-  left: -45px;
-  top: -20px;
-  transform: translateY(50px);
-  transition: all 0.5s;    
+    position: absolute;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0;
+    font-weight: normal;
+    font-size: 12px;
+    width: 170px;
+    left: -55px;
+    top: 0px;
+    transform: translateY(50px);
+    transition: all 0.3s 0.4s;    
 }
-.copyright {
-  flex-basis: 50%;
-}
+/* .copyright {
+    flex-basis: 50%;
+} */
 .app-select {
-  position: relative;
+    opacity: 1;
+    position: relative;
+    transition: opacity .5s;
+}
+body.skills .app-select,
+body.skills .github-container {
+    opacity: 0;
+    transition: opacity .5s 2s;
 }
 .app-select:hover h4 {
-  opacity: 1;
-  transform: translateY(0px);
+    opacity: 1;
+    transform: translateY(0px);
 }
 .app-select:hover img {
-  animation: bounce 1.5s infinite;
-  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+    animation: bounce 1.5s infinite;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
 }
 
 @keyframes bounce {
-  0%   { transform: scale(1,1)      translateY(0); }
-  10%  { transform: scale(1.2,.8)   translateY(0); }
-  30%  { transform: scale(.8,1.2)   translateY(-50px); }
-  50%  { transform: scale(1.1,.85) translateY(0); }
-  57%  { transform: scale(1,1)      translateY(-7px); }
-  64%  { transform: scale(1,1)      translateY(0); }
-  100% { transform: scale(1,1)      translateY(0); }
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.2,.8)   translateY(0); }
+    30%  { transform: scale(.8,1.2)   translateY(-50px); }
+    50%  { transform: scale(1.1,.85) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
 }
 
 #footer {
-  display: flex;
-  height: 10vh;
-  align-items: end;
-  opacity: 0.7;
-  transition: all 0.3s;
+    display: flex;
+    height: 10vh;
+    align-items: end;
+    justify-content: space-between;
+    opacity: 0.7;
+    transition: all 0.3s;
 }
 body.detail #footer {
-  display: flex;
-  height: initial;
-  opacity: 0.7;
-  transition: all 0.3s;
-  position: relative;
-  bottom: 30px;
+    display: flex;
+    height: initial;
+    opacity: 0.7;
+    transition: all 0.3s;
+    position: relative;
+    bottom: 30px;
 }
 body.detail #footer {
-  opacity: 0.2;
+    opacity: 0.2;
 }
 .copyright {
-  font-size: 12px;
-  color: #fff;
-  padding: 0px 0px 0px 20px;
-  line-height: initial;
+    font-size: 12px;
+    color: #fff;
+    padding: 0px 0px 0px 20px;
+    line-height: initial;
 }
 .copyright span {
-  color: #ff9c9c;
+    color: #ff9c9c;
 }

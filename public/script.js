@@ -51,7 +51,7 @@ $(() => {
         let prog = $(".progress-bar");
         if(param === "start") {
             for(let i = 0; i < percents.length; i++) {
-                prog.eq(i).animate({width:"" + percents[i] + "%"}, 1500, 'swing');
+                prog.eq(i).animate({width:"" + percents[i] + "%"}, (percents[i] * 100) / 3, 'swing');
             }
             return true;
         } else {

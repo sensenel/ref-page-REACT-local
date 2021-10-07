@@ -155,6 +155,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 
                 const showSkillSet = () => {
                     progRun("start"); // siehe jQuery helpers script.js
+
+/*                     // SKill-counter
+                    for(let i = 1; i <=15; i++) {
+                        let start; // erster step zum timestamp
+                        const el = document.getElementById('count-' + i); // get element
+                        const final = parseInt(el.textContent, 10); //finale number parsen 
+                        let duration = (final * 100) / 3 ; // duration in ms und je nach höhe von final unterschiedlich lang                     
+                        const step = ts => {
+                        if (!start) {
+                            start = ts;
+                        }
+                        // Zeitfragment je duration
+                        let progress = (ts - start) / duration;
+                        
+                        el.textContent = Math.floor(progress * final) + '%'; // set the text
+                            if (progress < 1) {
+                                // falls nicht 100% complete, request weiteren animationframe
+                                requestAnimationFrame(step);
+                            }
+                        }    
+                        // start animation
+                        requestAnimationFrame(step);
+                    }
+                    // END --> SKill-counter */
                 }
 
 
@@ -177,8 +201,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                 skillSet, .7, {alpha: 0, scale: 0}, {alpha: 1, scale: 1, ease: Power2.easeIn, onComplete: showSkillSet}, "expand+=0.2");
                 
                 
+                // vars für bei skillTl start jQuery toggled classes entfernen:
+                let mnuBtn = document.getElementById('mnu-button'),
+                    navContentA = [... document.querySelectorAll('.nav-content a')];
+                
                 skillBtn[0].addEventListener("click", (e) => {
+
                     body.classList.add('skills');
+
+                    if(body.classList.contains('mnu-open')) {
+                        body.classList.remove('mnu-open');
+                        mnuBtn.classList.remove('open');
+                        navContentA.forEach(el => el.classList.remove('init'));
+                    }
+
                     skillTl.restart();
                 });
                 skillClose[0].addEventListener('click', () => {
@@ -194,6 +230,40 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
            });
 
+           // CodeWars Logo parallax hover
+           var request = null;
+           var mouse = { x: 0, y: 0 };
+           var cx = window.innerWidth / 2;
+           var cy = window.innerHeight / 2;
+       
+           $('.nav-content').mousemove(function(event) {
+         
+               mouse.x = event.pageX;
+               mouse.y = event.pageY;
+           
+               cancelAnimationFrame(request);
+               request = requestAnimationFrame(update);	
+           });
+       
+           function update() {
+         
+               dx = mouse.x - cx;
+               dy = mouse.y - cy;
+       
+               tiltx = (dy / cy);
+               tilty = - (dx / cx);
+               radius = Math.sqrt(Math.pow(tiltx,2) + Math.pow(tilty,2));
+               degree = (radius * 300);
+               TweenLite.to(".codewars-img", 1, {transform:'rotate3d(' + (tiltx / 8) + ', ' + tilty + ', 0, -' + degree + 'deg)', ease:Power2.easeOut});
+           }
+           
+           $(window).resize(function() {
+               cx = window.innerWidth / 2;
+               cy = window.innerHeight / 2;
+           });	
+           // END ---> CodeWars Logo parallax hover
+
+           
             //von unterseiten zurück auf Start reagieren die timelines manchmal nicht-deswegen bei onload reset
             setTimeout(() =>{
 /*                 headerFxEnter.progress(0, true);

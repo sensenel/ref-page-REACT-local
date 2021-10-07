@@ -1,0 +1,186 @@
+/*CG responsive CSS */
+
+
+@media(max-width: 736px) and (orientation: portrait) {
+
+    body#body .copyright {
+        width: 20%;
+    }
+    body#body.skills.site div#skill-loader {
+        transform: scale(0.35) translateY(-40%) !important;
+    }
+
+}
+@media(max-width: 736px) and (orientation: landscape) {
+
+    body#body.site ol.content-header--items li {
+        line-height: 20px !important;
+    }
+    body#body ol.content-header--items {
+        width: initial;
+        margin: 10% 0% 0% 15% !important;
+    }
+
+}
+
+@media(max-width: 736px) {
+
+    body#body .profil {
+        transform: scale(0.7);
+        top: 10px;
+        left: 10px;
+    }
+    body#body .content-header h2 {
+        font-size: 18px !important;
+    }
+    body#body.site ol.content-header--items li {
+        line-height: 30px;
+    }
+    body#body ol.content-header--items {
+        width: initial;
+        margin-left: 5px;
+    }
+    body li.content-header__item h2 span:not(.ext-more) {
+        font-size: 12px;
+    }
+    body ol.content-header--items li:before {
+        bottom: 10px;
+        left: -25px;
+    }
+    body .copyright {
+        font-size: 10px;
+        padding: 0px 0px 0px 10px;
+    }
+    body .app-select img {
+        width: 40px;
+    }
+    body .github-select img {
+        width: 35px;
+    }
+    body .nav-content nav a {
+        font-size: 24px;
+    }
+    body a.menu-header span {
+        font-size: 12px;
+    }
+    body .nav-content nav a.init:before {
+        bottom: 20px;
+        left: -25px;
+        font-size: 12px;
+    }
+    body .nav-content nav {
+        padding: 50px 0px 65px 40px;
+    }
+    body .detail-header h1 {
+        font-size: 21px;
+    }
+    body .detail-seite--content p,
+    body .detail-seite--content li {
+        font-size: 16px;
+    }
+    body a.bck-link {
+        font-size: 14px;
+        width: 80px;
+    }
+    body .menu-container {
+        top: 20px;
+        right: 20px;
+    }
+    body#body.site div#skill-set {
+        left: calc(100vw / 1.4 - 512px);
+    }
+    body#body.skills.site div#skill-set {
+        transform: scale(0.5) !important;
+    }    
+    body#body.skills.site div#skill-loader {
+        transform: scale(0.35) translateY(-22%) !important;
+    }    
+
+}
+
+@media(max-width: 1024px) {
+
+    body ol.content-header--items {
+        width: 70%;
+    }
+    body .profil {
+        top: 20px;
+        left: 20px;
+    }
+
+}
+@media(max-width: 1024px) {
+
+    body#body .content-header h2 {
+        font-size: 28px;
+    }
+    body#body.skills div#skill-loader, 
+    body#body.skills div#skill-set {
+        transform: scale(0.65) !important;
+    }
+    body ol.content-header--items li {
+        line-height: 40px;
+    }
+
+}
+
+@media(max-width: 1024px) and (orientation: portrait) {
+
+    body.skills div#skill-loader, 
+    body.skills div#skill-set {
+        transform: scale(0.5) !important;
+    }
+
+}
+@media(min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+
+    body#body.skills div#skill-loader, 
+    body#body.skills div#skill-set {
+        transform: scale(0.7) !important;
+    }
+
+}
+
+@media(min-width: 1025px) and (max-width: 1366px) {
+
+    body .content-header h2 {
+        font-size: 36px;
+    }
+
+}
+@media(max-width: 1366px) {
+
+    body ol.content-header--items li {
+        width: 100%;
+    }
+    body .detail-seite--content, 
+    body .content-bottom--links {
+        padding: 20px 30px;
+    }
+    body .nav-container:before,
+    body .nav-container:after {
+        width: 0vw;
+        height: 0vh;
+    }
+    body#body.mnu-open .nav-container:before,
+    body#body.mnu-open .nav-container:after {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+/*ind. viewPorts*/
+@media(min-width: 1367px) and (max-width: 1870px) {
+    
+    body ol.content-header--items li {
+
+        width: initial;
+    }
+}
+@media(min-width: 1367px) {
+
+    .app-select {
+        left: -70px;
+    }
+
+}
