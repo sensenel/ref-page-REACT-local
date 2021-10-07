@@ -772,6 +772,7 @@ body.ext-hover ol.content-header--items a h2 {
 ol.content-header--items li {
   position: relative;
   line-height: 55px;
+  width: 60px;
 }
 li.content-header__item.last {
   position: relative;
