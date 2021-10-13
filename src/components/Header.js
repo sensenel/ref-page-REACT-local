@@ -33,7 +33,7 @@ class Header extends React.Component {
                     <h3>{el.key}</h3>
                     <div className="progress">     
                         <div className={"progress-bar"} role="progressbar">   
-                            <p style={{fontSize: '21px'}} id={`id="count-${this.state.skillCounter++}"`}>
+                            <p id={`id="count-${this.state.skillCounter++}"`}>
                                 {/* -- verworfen, siehe counter.js -- <Counter value={el.value} /> */}
                                 {el.value + "%"}
                             </p>
@@ -56,7 +56,7 @@ class Header extends React.Component {
                                     <h4>{key}</h4>
                                         <div className="progress">     
                                             <div className="progress-bar" role="progressbar">   
-                                                <p style={{fontSize: '21px'}} id={`id="count-${this.state.skillCounter++}"`}>{this.state.skillsBottom[el][key] + "%"}</p>
+                                                <p id={`id="count-${this.state.skillCounter++}"`}>{this.state.skillsBottom[el][key] + "%"}</p>
                                             </div>                    
                                         </div>
                                 </div>
