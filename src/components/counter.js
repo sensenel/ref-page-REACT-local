@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// idee von hier: https://codepen.io/HunorMarton/pen/EqmyMN
+// idee von hier: https://css-tricks.com/using-requestanimationframe-with-react-hooks/ und https://codepen.io/HunorMarton/pen/EqmyMN
 // für header.js (verworfen Class/ useEffect Konflikt) https://www.freecodecamp.org/news/pass-data-between-components-in-react/
 /**
  * Verworfen: React ist nicht ohne weiteres in der Lage

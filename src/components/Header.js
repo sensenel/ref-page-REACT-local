@@ -27,7 +27,9 @@ class Header extends React.Component {
     }
     
     skillsArray() { // array-> object basierend
+        
         return this.state.skills.map((el, i) => {
+
             return (
                 <div key={i} className="skill-item top flex">
                     <h3>{el.key}</h3>
